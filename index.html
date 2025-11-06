@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mini-projeto - Formulário com Validações</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Cadastro de Usuários</h1>
+    <p class="subtitle">Formulário com validações em tempo real e lista de usuários cadastrados.</p>
+
+    <form id="user-form" novalidate>
+      <div class="form-group">
+        <label for="name">Nome completo</label>
+        <input type="text" id="name" autocomplete="off" />
+        <div class="error-message" id="name-error"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" autocomplete="off" />
+        <div class="error-message" id="email-error"></div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group half">
+          <label for="password">Senha</label>
+          <input type="password" id="password" />
+          <div class="error-message" id="password-error"></div>
+        </div>
+
+        <div class="form-group half">
+          <label for="confirm-password">Confirmar senha</label>
+          <input type="password" id="confirm-password" />
+          <div class="error-message" id="confirm-password-error"></div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group half">
+          <label for="birthdate">Data de nascimento</label>
+          <input type="date" id="birthdate" />
+          <div class="error-message" id="birthdate-error"></div>
+        </div>
+
+        <div class="form-group half">
+          <label for="phone">Telefone (opcional)</label>
+          <input type="text" id="phone" placeholder="(99) 99999-9999" maxlength="15" />
+          <div class="error-message" id="phone-error"></div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="terms-group">
+          <input type="checkbox" id="terms" />
+          <span>Declaro que li e aceito os termos de uso.</span>
+        </div>
+        <div class="error-message" id="terms-error"></div>
+      </div>
+
+      <div class="actions">
+        <button type="submit" id="save-btn" disabled>Salvar</button>
+      </div>
+    </form>
+
+    <section id="user-list-section">
+      <div class="list-header">
+        <h2>Usuários cadastrados</h2>
+        <span id="user-count" style="font-size:0.85rem;color:#6b7280;">0 usuário(s)</span>
+      </div>
+
+      <div id="empty-state" class="empty-state">
+        Nenhum usuário cadastrado ainda. Preencha o formulário acima e clique em “Salvar”.
+      </div>
+
+      <table id="user-table" style="display:none;">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+          </tr>
+        </thead>
+        <tbody id="users-tbody"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
